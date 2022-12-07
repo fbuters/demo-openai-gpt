@@ -1,0 +1,7 @@
+gTTS==2.3.0
+openai==0.25.0
+pygame==2.1.2
+sounddevice==0.4.5
+streamlit==1.15.2
+wavio==0.0.7
+whisper==1.0
