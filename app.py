@@ -8,13 +8,13 @@ import os
 from gtts import gTTS
 import pygame
 
-# Initialize stuff
-initalized = False
-if not initalized:
+
+@st.cache(suppress_st_warning=True)
+def initialize():
     openai.api_key = os.environ["OPENAI_KEY"]  # Personal key stored in /.zshrc file
     model = whisper.load_model("small.en")
     pygame.mixer.init()
-    initalized = True
+    return model
 
 
 def record_from_microphone(
@@ -118,7 +118,7 @@ def text_to_speech(text: str):
 
 
 if __name__ == "__main__":
-
+    model = initialize()
     st.header("An AI tour-de-force")
     st.markdown(
         """
