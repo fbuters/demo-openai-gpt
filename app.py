@@ -9,9 +9,12 @@ from gtts import gTTS
 import pygame
 
 # Initialize stuff
-openai.api_key = os.environ["OPENAI_KEY"]  # Personal key stored in /.zshrc file
-model = whisper.load_model("small.en")
-pygame.mixer.init()
+initalized = False
+if not initalized:
+    openai.api_key = os.environ["OPENAI_KEY"]  # Personal key stored in /.zshrc file
+    model = whisper.load_model("small.en")
+    pygame.mixer.init()
+    initalized = True
 
 
 def record_from_microphone(
